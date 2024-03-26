@@ -23,12 +23,19 @@ export const SearchPage = () => {
   };
 
   return (
-    <div style={{ backgroundColor: 'lightgreen', padding: '20px' }}>
-      <h1>Busca tu Buperhéroe</h1>
+    <div
+      style={{
+        backgroundColor: 'lightgreen',
+        padding: '200px',
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      <h1>Busca tu Superhéroe</h1>
       <hr />
       <div className='row'>
         <div className='col-5'>
-          <h4>busca</h4>
+          <h4></h4>
           <hr />
           <form onSubmit={onSearchSubmit}>
             <input
@@ -36,6 +43,7 @@ export const SearchPage = () => {
               placeholder='Search a hero'
               className='form-control'
               name='searchText'
+              padding='20px'
               autoComplete='off'
               value={searchText}
               onChange={onInputChange}
@@ -54,7 +62,7 @@ export const SearchPage = () => {
         </div>
 
         <div className='col-7'>
-          <h4>resultado</h4>
+          <h4></h4>
           <hr />
 
           {q === '' ? (
