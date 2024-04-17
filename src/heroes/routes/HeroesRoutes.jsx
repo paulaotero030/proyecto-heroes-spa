@@ -10,7 +10,7 @@ export const HeroesRoutes = () => {
     <>
       <Navbar />
 
-      <div style={{ backgroundColor: 'lightgreen', padding: '20px' }}>
+      <div style={{ backgroundColor: 'lightgreen', padding: '20px', flex: 1 }}>
         <Routes>
           <Route path='marvel' element={<MarvelPage />} />
           <Route path='dc' element={<DcPage />} />

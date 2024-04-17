@@ -1,17 +1,23 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export const LoginPage = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [username, setUsername] = useState('');
 
-  const onLogin = () => {
-    login('Paula Otero');
+  const handleLogin = () => {
+    if (username.trim() !== '') {
+      login(username);
+      navigate('/', { replace: true });
+    } else {
+      alert('Por favor ingresa un nombre de usuario válido.');
+    }
+  };
 
-    navigate('/', {
-      replace: true,
-    });
+  const handleInputChange = (event) => {
+    setUsername(event.target.value);
   };
 
   return (
@@ -39,22 +45,37 @@ export const LoginPage = () => {
           textAlign: 'center',
         }}
       >
-        {/* <h1>LoginPage</h1> */}
-        <hr />
+        <h2
+          style={{
+            color: 'white',
+            fontSize: '24px',
+            textShadow: '4px 4px 10px black',
+          }}
+        >
+          Login
+        </h2>
+
+        <input
+          type='text'
+          placeholder='Enter your name'
+          value={username}
+          onChange={handleInputChange}
+          style={{ marginBottom: '10px' }}
+        />
         <button
           className='btn'
-          onClick={onLogin}
+          onClick={handleLogin}
           style={{
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
             color: 'white',
             border: 'none',
-            padding: '10px 20px',
+            padding: '4px 17px',
             borderRadius: '5px',
             cursor: 'pointer',
             transition: 'background-color 0.3s ease',
           }}
         >
-          Ingresar
+          Enter
         </button>
       </div>
     </div>
